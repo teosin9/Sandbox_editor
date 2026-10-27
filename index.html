@@ -152,6 +152,29 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
 .code-head .live{font-size:11px;color:var(--green);display:flex;align-items:center;gap:5px}
 .code-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
 #codeEditor{flex:1;background:#0a0c0f;color:#d6deeb;font-family:var(--mono);font-size:12.5px;line-height:1.65;border:0;padding:14px 16px;resize:none;outline:none;tab-size:2;white-space:pre}
+/* ---------- TERMINAL ---------- */
+.term-panel{position:fixed;left:0;right:0;bottom:0;height:54dvh;background:#0a0c0f;border-top:1px solid var(--line2);z-index:41;display:none;flex-direction:column}
+.term-panel.open{display:flex;animation:codeUp .28s cubic-bezier(.22,1,.36,1)}
+.term-head{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.term-dots{display:flex;gap:6px}.term-dots span{width:11px;height:11px;border-radius:50%;display:block}
+.term-head b{font-size:12.5px;display:flex;gap:7px;align-items:center}
+.term-head b svg{width:14px;height:14px;color:var(--green)}
+.term-head .live{font-size:11px;color:var(--green);display:flex;align-items:center;gap:5px}
+.term-tools{display:flex;gap:7px;flex-wrap:wrap;padding:9px 14px;border-bottom:1px solid var(--line);background:#0e1013}
+.term-tools .chip{font-size:11.5px}
+.term-body{flex:1;overflow-y:auto;padding:12px 14px;font-family:var(--mono);font-size:13px;line-height:1.65;color:#d6deeb;white-space:pre-wrap;word-break:break-word}
+.term-body .t-prompt{color:#4ade80;font-weight:600}
+.term-body .t-cmd{color:#fff}
+.term-body .t-dim{color:#8b93a3}
+.term-body .t-ok{color:#4ade80}
+.term-body .t-err{color:#f87171}
+.term-body .t-accent{color:#ffb37c}
+.term-body .t-teal{color:#2dd4bf}
+.term-input-row{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line);background:#0e1013}
+.term-input-row .ps{font-family:var(--mono);font-size:13px;color:#4ade80;font-weight:600;white-space:nowrap}
+#termInput{flex:1;background:transparent;border:0;outline:none;color:#fff;font-family:var(--mono);font-size:13.5px;min-width:0;caret-color:#4ade80}
+#termInput::placeholder{color:#5b6472}
+@media(max-width:860px){.term-panel{height:62dvh}.term-tools{display:none}.term-tools.show{display:flex}}
 .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,80px);background:#fff;color:#111;font-size:13px;font-weight:600;padding:11px 18px;border-radius:99px;box-shadow:0 14px 40px rgba(0,0,0,.45);z-index:99;transition:transform .3s cubic-bezier(.22,1,.36,1);display:flex;gap:8px;align-items:center;max-width:92vw;text-align:center}
 .toast.show{transform:translate(-50%,0)}
 .toast svg{width:15px;height:15px;color:#0a7d4f;flex:none}
@@ -179,6 +202,27 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
 .dcode-label{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8b93a3;margin:14px 0 7px}
 #designCode{background:#0a0c0f;border:1px solid var(--line2);border-radius:10px;color:#a7f3ea;font-family:var(--mono);font-size:11px;line-height:1.6;padding:12px;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto;margin:0}
 
+.now-open{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;background:#101c2c;border:1px solid #27405e;border-radius:12px;margin:0 14px 10px;padding:10px 13px}
+.now-open .now-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc}
+.now-open .now-name{font-size:13.5px;font-weight:700;color:#fff}
+.now-open .now-kind{font-size:12px;color:#b9c6d4;line-height:1.45}
+.designs-list{display:flex;flex-direction:column;gap:7px}
+.design-item{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 10px;color:var(--text)}
+.design-item:hover{border-color:var(--accent)}
+.design-item.current{border-color:var(--accent);background:var(--accent-soft)}
+.design-item .d-name{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.design-item .d-meta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.design-item .cur{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:2px 6px;border-radius:99px;flex:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.66);z-index:80;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-overlay.open{display:flex}
+.modal-card{background:#1c1f26;border:1px solid var(--line2);border-radius:16px;max-width:480px;width:100%;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+.modal-card h2{margin:0 0 8px;font-size:17px}
+.modal-card p{margin:0 0 10px;font-size:13.5px;color:#c9cdd6;line-height:1.6}
+.modal-actions{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.start-strip{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:#1c1f26;border:1px solid var(--line2);border-radius:12px;margin:0 14px 10px;padding:10px 13px}
+.start-steps{font-size:12.5px;color:#c9cdd6;line-height:1.55;flex:1;min-width:230px}
+.start-steps b{color:#fff}
+.start-actions{display:flex;gap:8px;flex-wrap:wrap}
 @media (max-width:1020px){
   .right{width:288px}
   .left{width:214px}
@@ -218,6 +262,7 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
     <button data-device="tablet"><i data-lucide="tablet"></i>Tablet</button>
     <button data-device="mobile"><i data-lucide="smartphone"></i>Phone</button>
   </div>
+  <button class="btn" id="termToggle"><i data-lucide="terminal"></i>Terminal</button>
   <button class="btn" id="codeToggle"><i data-lucide="code-2"></i>Code</button>
   <button class="btn" id="copyBtn"><i data-lucide="copy"></i>Copy code</button>
   <button class="btn" id="dlHtmlBtn"><i data-lucide="download"></i>HTML</button>
@@ -239,6 +284,22 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
         <button class="add-btn" data-tpl="restaurant"><i data-lucide="utensils"></i>Restaurant<span>Menu &amp; hours</span></button>
       </div>
       <button class="btn primary" id="openDesignBtn" style="width:100%;justify-content:center;margin-top:9px"><i data-lucide="pen-tool"></i>Design canvas — draw it yourself</button>
+    </div>
+
+    <div class="psec">
+      <h3><i data-lucide="folder-open"></i>My designs — this session</h3>
+      <p class="sub">Every site you create or open stays here while this page is open. Tap any one to switch back to it — switching never deletes the one you are leaving, it is saved here first.</p>
+      <div class="designs-list" id="myDesignsList"><div class="empty-note">Nothing saved yet. Create a site above and it will appear here.</div></div>
+      <p class="kbd-note" style="margin-top:9px">Closing or refreshing this page clears this list — download any site you want to keep with <b style="color:var(--text)">HTML</b> at the top before you leave.</p>
+    </div>
+
+    <div class="psec">
+      <h3><i data-lucide="eye"></i>Examples — open &amp; edit</h3>
+      <p class="sub">Websites already made with this editor. Tap one and it opens right in the preview above — change anything, then download it as your own.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="btn" data-example="car" style="justify-content:flex-start;white-space:normal;text-align:left;line-height:1.4"><i data-lucide="car"></i>Car hero page — Test 2</button>
+      </div>
+      <p class="kbd-note" style="margin-top:9px">This is the car site from the last test, saved inside the editor so you can see it here — not only as a downloaded file.</p>
     </div>
 
     <div class="psec">
@@ -298,6 +359,18 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
       <div class="spacer" style="flex:1"></div>
       <button class="btn" id="designModeBtn" style="background:#1c1f26;border-color:#363b47;color:#e5e7eb"><i data-lucide="pen-tool"></i>Design canvas</button>
       <button class="btn" id="refreshTreeBtn" style="background:#1c1f26;border-color:#363b47;color:#e5e7eb"><i data-lucide="refresh-cw"></i>Refresh structure</button>
+    </div>
+    <div class="now-open" id="nowOpenBar">
+      <span class="now-label">Now open</span>
+      <span class="now-name" id="nowOpenName">Starter demo — Sunrise Bakery</span>
+      <span class="now-kind" id="nowOpenKind">This is the built-in starter demo, just an example to practise on — not your site yet. Pick a template on the left to start your own; this demo stays available any time from “Demo site”.</span>
+    </div>
+    <div class="start-strip" id="startStrip">
+      <div class="start-steps"><b>How to create a website here:</b> 1 · Pick a template under “Create a website” (left) or open an example &nbsp; 2 · Click anything in the preview to edit it &nbsp; 3 · Press <b>HTML</b> at the top to download your finished site. &nbsp;<b>Starting a second site is safe:</b> you will be asked first, and your first site stays under “My designs” so you can switch back.</div>
+      <div class="start-actions">
+        <button class="btn primary" id="startCreateBtn"><i data-lucide="wand-2"></i>Create a website</button>
+        <button class="btn" id="startExampleBtn"><i data-lucide="car"></i>See the car test site</button>
+      </div>
     </div>
     <div class="preview-scroll" id="previewScroll">
       <div class="device-frame" id="deviceFrame">
@@ -664,7 +737,7 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
             <button class="btn" data-kit="hover"><i data-lucide="mouse-pointer-2"></i>Buttons lift on hover</button>
           </div>
         </div>
-        <p class="kbd-note" style="margin-top:9px">Forms: when a visitor submits, the form checks the email and swaps in a thank-you message. Smooth scrolling between page sections is included automatically.</p>
+        <p class="kbd-note" style="margin-top:9px">Forms: when a visitor submits, the form checks the email and swaps in a thank-you message. Smooth scrolling between page sections is included automatically. Motion is safe: if a visitor's browser cannot run the animation, every block still appears on its own — a page with motion can never open blank.</p>
       </div>
       <div class="psec">
         <h3><i data-lucide="image"></i>Hero / banner image</h3>
@@ -739,6 +812,52 @@ details.adv summary{font-size:12px;font-weight:700;color:var(--muted);cursor:poi
   </div>
   <textarea id="codeEditor" spellcheck="false" aria-label="HTML code editor"></textarea>
 </section>
+
+<!-- TERMINAL PANEL -->
+<section class="term-panel" id="termPanel" aria-label="Terminal">
+  <div class="term-head">
+    <div class="term-dots"><span style="background:#f87171"></span><span style="background:#fbbf24"></span><span style="background:#4ade80"></span></div>
+    <b><i data-lucide="terminal"></i>Terminal — boss@sandbox</b>
+    <span class="live">● Real typing · type anything · <span style="color:#9aa0ad">Ctrl + ` to open / close</span></span>
+    <div style="flex:1"></div>
+    <button class="btn" id="termToolsBtn"><i data-lucide="wrench"></i>Tools</button>
+    <button class="btn" id="termClearBtn"><i data-lucide="eraser"></i>Clear</button>
+    <button class="btn" id="termClose"><i data-lucide="x"></i>Close</button>
+  </div>
+  <div class="term-tools" id="termTools">
+    <span style="font-size:11.5px;color:var(--muted);align-self:center;margin-right:2px">Built-in tools — no install needed, tap to run:</span>
+    <button class="chip" data-tcmd="ls -la">ls · files</button>
+    <button class="chip" data-tcmd="tools">tools · all tools</button>
+    <button class="chip" data-tcmd="git status">git status</button>
+    <button class="chip" data-tcmd="stats">stats</button>
+    <button class="chip" data-tcmd="format">format code</button>
+    <button class="chip" data-tcmd="tree">tree</button>
+    <button class="chip" data-tcmd="download">download site</button>
+    <button class="chip" data-tcmd="preview">preview</button>
+    <button class="chip" data-tcmd="help">help</button>
+  </div>
+  <div class="term-body" id="termOut" tabindex="0"></div>
+  <div class="term-input-row">
+    <span class="ps" id="termPrompt">boss@sandbox:~/site $</span>
+    <input type="text" id="termInput" placeholder="Type any command — try  help ,  ls ,  cat index.html ,  calc 12*8 ,  create landing …" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input">
+    <button class="btn primary" id="termRunBtn" style="flex:none"><i data-lucide="corner-down-left"></i>Run</button>
+  </div>
+  <p style="margin:0;padding:8px 14px 10px;font-size:11.5px;color:#6b7280;background:#0e1013;border-top:1px solid var(--line);line-height:1.55">This terminal lives in your browser, so it works on the files in this editor — your site, its code and downloads. It is not limited to the buttons above: type any command you know. ↑ / ↓ for history · Tab to complete · <b style="color:#9aa0ad">clear</b> to wipe · <b style="color:#9aa0ad">tools</b> lists everything bundled. System programs on your phone / computer itself (like installing an OS package) still need that device's own terminal — this one can't reach outside the browser.</p>
+</section>
+
+<!-- SWITCH / OVERWRITE WARNING -->
+<div class="modal-overlay" id="switchModal" role="dialog" aria-modal="true" aria-labelledby="switchTitle">
+  <div class="modal-card">
+    <h2 id="switchTitle">Start a new site? Your current one is safe.</h2>
+    <p id="switchText">You are about to replace the site in the preview. Your current site will not be lost.</p>
+    <p style="font-size:12.5px;color:#9aa0ad">Choose what to do with the current site first — download it as a file, or keep it in “My designs” (left panel) and switch back to it any time in this session.</p>
+    <div class="modal-actions">
+      <button class="btn primary" id="switchDownloadBtn" style="justify-content:center"><i data-lucide="download"></i><span id="switchDownloadLabel">Download current site first, then continue</span></button>
+      <button class="btn" id="switchKeepBtn" style="justify-content:center"><i data-lucide="folder-open"></i>Keep it in My designs &amp; continue</button>
+      <button class="btn" id="switchCancelBtn" style="justify-content:center"><i data-lucide="x"></i>Cancel — stay on current site</button>
+    </div>
+  </div>
+</div>
 
 <div class="toast" id="toast"><i data-lucide="check-circle-2"></i><span id="toastText"></span></div>
 
@@ -897,6 +1016,7 @@ var preview=$('preview'), codeEditor=$('codeEditor');
 var currentHTML='', isZip=false, zipFiles={}, zipName='', mainFile='index.html';
 var blobMap={}, reverseBlobMap={};
 var selectedInfo=null, historyStack=[], historyIdx=-1, suppressHistory=false, codeTyping=false;
+var currentFileName='demo-site.html', currentKindLabel='demo', hasUserWork=false, pendingLoad=null, myDesigns=[], designSeq=0, booting=true;
 
 var DEMO_HTML='<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Sunrise Bakery</title>\n<style>\n  body{margin:0;font-family:Georgia,serif;color:#2b2118;background:#fff8f0}\n  .hero{background:#3b2314;color:#fff;padding:80px 24px;text-align:center}\n  .hero h1{font-size:52px;margin:0 0 14px}\n  .hero p{font-size:19px;color:#f3d9b8;max-width:560px;margin:0 auto 26px;line-height:1.6}\n  .btn{display:inline-block;background:#ff5c1c;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;font-family:Arial,sans-serif;font-weight:bold}\n  .wrap{max-width:1000px;margin:0 auto;padding:56px 24px}\n  .wrap h2{font-size:34px;text-align:center;margin:0 0 10px}\n  .wrap .lead{text-align:center;color:#7a6a58;font-size:17px;line-height:1.6}\n  .cards{display:flex;gap:18px;flex-wrap:wrap;margin-top:34px}\n  .card{flex:1;min-width:230px;background:#ffffff;border:1px solid #eee0cd;border-radius:14px;padding:26px}\n  .card h3{margin:0 0 8px;font-size:21px}\n  .card p{color:#7a6a58;line-height:1.6;margin:0}\n  .photo{width:100%;height:300px;object-fit:cover;border-radius:14px;margin-top:36px}\n  footer{background:#2b2118;color:#cbb79e;text-align:center;padding:28px 20px;font-size:14px}\n</style>\n</head>\n<body>\n  <section class="hero">\n    <h1>Sunrise Bakery</h1>\n    <p>Fresh bread, cakes and pastries baked every morning in the heart of the city. Taste the warmth in every bite.</p>\n    <a class="btn" href="#menu">See Our Menu</a>\n  </section>\n  <div class="wrap" id="menu">\n    <h2>Baked Fresh Daily</h2>\n    <p class="lead">Everything is made from scratch each morning — no frozen dough, no shortcuts.</p>\n    <div class="cards">\n      <div class="card"><h3>Sourdough Loaves</h3><p>Slow-fermented for 24 hours for a deep flavour and a crackling crust.</p></div>\n      <div class="card"><h3>Custom Cakes</h3><p>Birthday, wedding or just because — tell us the occasion, we bake the memory.</p></div>\n      <div class="card"><h3>Morning Pastries</h3><p>Croissants, danishes and cinnamon rolls, still warm when the doors open.</p></div>\n    </div>\n    <img class="photo" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200" alt="Fresh baked bread on a wooden table">\n  </div>\n  <footer>Sunrise Bakery · Open every day 7am – 9pm · Hello — come say hi!</footer>\n</body>\n</html>';
 
@@ -956,15 +1076,60 @@ function deBlob(html){
   });
   return html;
 }
+function saveSnapshotToLibrary(){
+  if(!currentHTML)return null;
+  var norm=normalizeHTML(currentHTML);
+  for(var i=0;i<myDesigns.length;i++){ if(myDesigns[i].html===norm){ myDesigns[i].name=currentFileName; myDesigns[i].kind=currentKindLabel; renderMyDesigns(); return myDesigns[i]; } }
+  var entry={id:'site'+(++designSeq),name:currentFileName,kind:currentKindLabel,html:norm,time:new Date()};
+  myDesigns.unshift(entry); if(myDesigns.length>12)myDesigns=myDesigns.slice(0,12);
+  renderMyDesigns(); return entry;
+}
+function renderMyDesigns(){
+  var box=$('myDesignsList'); if(!box)return; box.innerHTML='';
+  if(!myDesigns.length){ box.innerHTML='<div class="empty-note">Nothing saved yet. Create a site above and it will appear here.</div>'; return; }
+  myDesigns.forEach(function(d){
+    var isCur=normalizeHTML(currentHTML)===d.html;
+    var b=document.createElement('button'); b.className='design-item'+(isCur?' current':''); b.type='button';
+    var when=d.time?(' · '+d.time.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})):'';
+    b.innerHTML='<span style="flex:1;min-width:0"><span class="d-name" style="display:block"></span><span class="d-meta" style="display:block"></span></span>'+(isCur?'<span class="cur">Open now</span>':'<span style="font-size:11px;color:var(--teal);font-weight:700;flex:none">Open</span>');
+    b.querySelector('.d-name').textContent=d.name;
+    b.querySelector('.d-meta').textContent=(d.kind||'site')+when+' · tap to switch to it';
+    b.onclick=function(){ if(normalizeHTML(currentHTML)===d.html){toast('That site is already open');return;} requestLoad(d.html,d.name,d.kind||'from My designs'); };
+    box.appendChild(b);
+  });
+}
+function updateNowOpen(){
+  var n=$('nowOpenName'), k=$('nowOpenKind'); if(!n||!k)return;
+  n.textContent=(currentKindLabel==='demo')?('Starter demo — Sunrise Bakery · '+currentFileName):currentFileName;
+  var map={'demo':'Starter demo — just an example to practise on, not your site yet. Pick a template on the left to start your own.','created from template':'Made from a template in this editor. Click anything in the preview to make it yours, and download it with HTML at the top when you are done.','example — made in this editor':'An example made earlier in this editor. Edit it freely — starting another site will ask you first and keep this one in My designs.','designed by you':'Made by you on the design canvas. Keep editing it here, add motion in the Whole site tab, or download it with HTML at the top.','from My designs':'Brought back from My designs (left). Your other sites are still there — switch any time, nothing is deleted by switching.'};
+  k.textContent=map[currentKindLabel]||('Currently open in the preview — click anything to edit it. Starting another site will ask you first and keep this one in My designs.');
+}
 function loadSite(html,name,kind){
   if(typeof resetKitState==='function')resetKitState();
   currentHTML=normalizeHTML(html);
+  currentFileName=name; currentKindLabel=kind||'';
   selectedInfo=null; showInspector(false);
   preview.srcdoc=buildPreviewHTML(currentHTML);
   if(!codeTyping)codeEditor.value=currentHTML;
   $('fileName').textContent=name; $('codeFileName').textContent=name;
   $('fileKind').textContent=kind;
   pushHistory(currentHTML);
+  updateNowOpen(); renderMyDesigns();
+  if(!booting)hasUserWork=true;
+}
+function requestLoad(html,name,kind,after){
+  var norm=normalizeHTML(html);
+  if(currentHTML&&normalizeHTML(currentHTML)===norm){ toast('That site is already open in the preview'); return; }
+  if(!booting&&hasUserWork&&currentHTML){
+    pendingLoad={html:html,name:name,kind:kind,after:after||null};
+    $('switchText').textContent='You are about to replace “'+currentFileName+'” with “'+name+'”. Your current site will not be lost — pick an option below.';
+    $('switchDownloadLabel').textContent='Download “'+currentFileName+'” first, then open “'+name+'”';
+    $('switchModal').classList.add('open');
+    if(window.lucide)lucide.createIcons();
+    return;
+  }
+  if(after)after();
+  loadSite(html,name,kind);
 }
 function pushHistory(html){
   if(suppressHistory)return;
@@ -986,6 +1151,20 @@ function restoreHistory(){
 function post(msg){ preview.contentWindow&&preview.contentWindow.postMessage(msg,'*'); }
 function applySelected(props){ if(selectedInfo)post({type:'ME_APPLY',id:selectedInfo.id,props:props}); }
 
+/* ================= SWITCH MODAL ================= */
+function closeSwitchModal(){ $('switchModal').classList.remove('open'); }
+$('switchCancelBtn').onclick=function(){ pendingLoad=null; closeSwitchModal(); toast('Staying on your current site — nothing changed'); };
+$('switchKeepBtn').onclick=function(){
+  if(!pendingLoad)return; saveSnapshotToLibrary(); var p=pendingLoad; pendingLoad=null; closeSwitchModal(); if(p.after)p.after(); loadSite(p.html,p.name,p.kind); toast('Previous site kept in My designs — new site is open, switch back any time on the left');
+};
+$('switchDownloadBtn').onclick=function(){
+  if(!pendingLoad)return; saveSnapshotToLibrary();
+  downloadBlob(new Blob([currentHTML],{type:'text/html'}),(currentFileName||'my-site.html').replace(/\.zip$/i,'.html'));
+  var p=pendingLoad; pendingLoad=null; closeSwitchModal();
+  setTimeout(function(){ if(p.after)p.after(); loadSite(p.html,p.name,p.kind); toast('Current site downloaded and kept in My designs — new site is open'); },250);
+};
+$('switchModal').addEventListener('click',function(e){ if(e.target===$('switchModal')){ pendingLoad=null; closeSwitchModal(); } });
+
 /* ================= PREVIEW MESSAGES ================= */
 window.addEventListener('message',function(e){
   var d=e.data||{};
@@ -994,9 +1173,9 @@ window.addEventListener('message',function(e){
   if(d.type==='ME_SYNC'){
     var clean=deBlob(d.html);
     if(clean!==currentHTML){
-      currentHTML=clean;
+      currentHTML=clean; hasUserWork=true;
       if(!codeTyping)codeEditor.value=clean;
-      pushHistory(clean);
+      pushHistory(clean); renderMyDesigns();
     }
   }
   if(d.type==='ME_TREE'){ renderLayers(d.tree); }
@@ -1306,7 +1485,7 @@ function handleFile(file){
   var name=file.name.toLowerCase();
   if(name.endsWith('.html')||name.endsWith('.htm')){
     var r=new FileReader();
-    r.onload=function(){isZip=false;zipFiles={};blobMap={};reverseBlobMap={};setFileList([file.name],file.name);loadSite(r.result,file.name,'single file');toast('Site loaded — click anything in the preview to edit it');};
+    r.onload=function(){var html=r.result;requestLoad(html,file.name,'single file',function(){isZip=false;zipFiles={};blobMap={};reverseBlobMap={};setFileList([file.name],file.name);});if(!$('switchModal').classList.contains('open'))toast('Site loaded — click anything in the preview to edit it');};
     r.readAsText(file);
   }else if(name.endsWith('.zip')){
     if(typeof JSZip==='undefined'){toast('Zip library still loading — try again in a second');return;}
@@ -1349,7 +1528,7 @@ dz.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.pre
 dz.addEventListener('drop',function(e){var f=e.dataTransfer.files[0];handleFile(f)});
 document.addEventListener('dragover',function(e){e.preventDefault()});
 document.addEventListener('drop',function(e){e.preventDefault()});
-$('demoBtn').onclick=function(){isZip=false;zipFiles={};blobMap={};reverseBlobMap={};setFileList(['demo-site.html'],'demo-site.html');loadSite(DEMO_HTML,'demo-site.html','demo');toast('Demo bakery site loaded — try clicking its heading')};
+$('demoBtn').onclick=function(){requestLoad(DEMO_HTML,'demo-site.html','demo',function(){isZip=false;zipFiles={};blobMap={};reverseBlobMap={};setFileList(['demo-site.html'],'demo-site.html');});if(!$('switchModal').classList.contains('open'))toast('Starter demo loaded — Sunrise Bakery, just an example to practise on')};
 
 /* ================= DEVICE / UNDO ================= */
 document.querySelectorAll('#deviceSeg button').forEach(function(b){
@@ -1433,10 +1612,9 @@ $('applyReplyBtn').onclick=function(){
   if(!txt){toast('Paste Muse\'s reply first');return;}
   var full=txt.match(/<!DOCTYPE html[\s\S]*<\/html>/i)||txt.match(/<html[\s\S]*<\/html>/i);
   if(full){
-    isZip=false;
-    loadSite(full[0],$('fileName').textContent.replace(/\.zip$/i,'.html'),'edited by Muse');
+    requestLoad(full[0],$('fileName').textContent.replace(/\.zip$/i,'.html'),'edited by Muse',function(){isZip=false;});
     toast('Muse\'s full-page edit applied');
-    claudeSay('Applied Muse\'s full-page edit. Undo at the top can reverse it.');
+    claudeSay('Applied Muse\'s full-page edit. Your previous site was kept in My designs if you confirmed the switch, and Undo at the top can also reverse it.');
   }else{
     var frag=txt.replace(/```html?/gi,'').replace(/```/g,'').trim();
     if(/</.test(frag)){
@@ -1460,13 +1638,39 @@ restaurant:{name:'restaurant.html',html:'<!DOCTYPE html>\n<html lang="en">\n<hea
 document.querySelectorAll('[data-tpl]').forEach(function(b){
   b.onclick=function(){
     var t=TEMPLATES[b.dataset.tpl]; if(!t)return;
-    isZip=false; zipFiles={}; blobMap={}; reverseBlobMap={};
-    setFileList([t.name],t.name);
-    loadSite(t.html,t.name,'created from template');
-    if(designOn)setDesignMode(false);
-    toast('New website created — click anything in the preview to make it yours');
+    requestLoad(t.html,t.name,'created from template',function(){
+      isZip=false; zipFiles={}; blobMap={}; reverseBlobMap={};
+      setFileList([t.name],t.name);
+      if(typeof designOn!=='undefined'&&designOn)setDesignMode(false);
+    });
+    if(!$('switchModal').classList.contains('open'))toast('New website created — click anything in the preview to make it yours');
   };
 });
+
+/* ================= EXAMPLES (sites already made in this editor) ================= */
+var EXAMPLE_SITES={
+car:{name:'car-hero-landing-page.html',html:'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Drive Beyond Limits — Car Hero Landing Page</title>\n<style>\n  body{margin:0;font-family:Arial,sans-serif;color:#1f2937;background:#ffffff}\n  .hero{background:#0d1420;color:#fff;padding:96px 24px;text-align:center}\n  .hero h1{font-size:54px;margin:0 0 16px;letter-spacing:-.01em}\n  .hero p{font-size:19px;color:#b9c6d4;max-width:560px;margin:0 auto 28px;line-height:1.6}\n  .btn{display:inline-block;background:#ff5c1c;color:#fff;padding:15px 34px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px}\n  .wrap{max-width:1000px;margin:0 auto;padding:60px 24px}\n  .wrap h2{font-size:32px;text-align:center;margin:0 0 8px}\n  .lead{text-align:center;color:#6b7280;line-height:1.6;margin:0}\n  .cards{display:flex;gap:18px;flex-wrap:wrap;margin-top:34px}\n  .card{flex:1;min-width:230px;border:1px solid #e5e7eb;border-radius:14px;padding:28px;background:#fff}\n  .card h3{margin:0 0 9px;font-size:21px}\n  .card p{color:#6b7280;line-height:1.65;margin:0}\n  .cta{background:#0d1420;color:#fff;text-align:center;padding:56px 24px}\n  .cta h2{font-size:30px;margin:0 0 10px}\n  .cta p{color:#b9c6d4;margin:0 0 24px;line-height:1.6}\n  footer{background:#0d1420;color:#8fa1b3;text-align:center;padding:24px 20px;font-size:14px;border-top:1px solid #1d2a3d}\n  .me-rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);animation:meSafe .5s ease 3.4s forwards}\n  @keyframes meSafe{to{opacity:1;transform:none}}\n  .me-rv.me-in{opacity:1;transform:none}\n  @media (prefers-reduced-motion:reduce){.me-rv{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}}\n</style>\n</head>\n<body>\n  <section class="hero">\n    <h1>Drive Beyond Limits</h1>\n    <p>A car built for speed, style, and the open road.</p>\n    <a class="btn" href="#features">Explore the Car</a>\n  </section>\n  <div class="wrap" id="features">\n    <h2>Built Around the Driver</h2>\n    <p class="lead">Three things this car does best.</p>\n    <div class="cards">\n      <div class="card"><h3>Speed</h3><p>Built to move — quick off the line and steady at speed, with power you can feel from the first press of the pedal.</p></div>\n      <div class="card"><h3>Design</h3><p>Clean lines and a bold stance. Every curve is shaped to look fast, even standing still.</p></div>\n      <div class="card"><h3>Comfort</h3><p>A quiet cabin, soft seats and room to stretch — made for long drives, not just short trips.</p></div>\n    </div>\n  </div>\n  <section class="cta">\n    <h2>Ready for the open road?</h2>\n    <p>See it in person — book a test drive today.</p>\n    <a class="btn" href="#features">Explore the Car</a>\n  </section>\n  <footer>Drive Beyond Limits · Made in the Sandbox editor</footer>\n  <script>\n  (function(){\n    function ready(f){if(document.readyState!=="loading")f();else document.addEventListener("DOMContentLoaded",f);}\n    ready(function(){\n      var targets=[].slice.call(document.querySelectorAll("section,footer,header,main,h1,h2,form,blockquote,img,body>div"));\n      targets.forEach(function(el){el.classList.add("me-rv");});\n      setTimeout(function(){targets.forEach(function(el){el.classList.add("me-in");});},3000);\n      if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("me-in");io.unobserve(en.target);}});},{threshold:.08});targets.forEach(function(el){io.observe(el);});}else{targets.forEach(function(el){el.classList.add("me-in");});}\n    });\n  })();\n  <\/script>\n</body>\n</html>'}
+};
+function loadExample(key){
+  var ex=EXAMPLE_SITES[key]; if(!ex)return;
+  requestLoad(ex.html,ex.name,'example — made in this editor',function(){
+    isZip=false; zipFiles={}; blobMap={}; reverseBlobMap={};
+    setFileList([ex.name],ex.name);
+    if(typeof designOn!=='undefined'&&designOn)setDesignMode(false);
+  });
+  switchTab('Design');
+  if(window.innerWidth<861){var st=document.querySelector('.stage'); if(st)st.scrollIntoView({behavior:'smooth'});}
+  if(!$('switchModal').classList.contains('open'))toast('Car test site opened in the preview — click anything to edit it');
+}
+document.querySelectorAll('[data-example]').forEach(function(b){
+  b.onclick=function(){loadExample(b.dataset.example)};
+});
+$('startExampleBtn').onclick=function(){loadExample('car')};
+$('startCreateBtn').onclick=function(){
+  var lb=document.querySelector('[data-tpl="landing"]');
+  if(lb)lb.click();
+  if(window.innerWidth<861){var st=document.querySelector('.stage'); if(st)st.scrollIntoView({behavior:'smooth'});}
+};
 
 /* ================= MAKE IT LIVE: MOTION + WORKING CODE KIT ================= */
 var kit={fx:'',forms:false,top:false,hover:false};
@@ -1479,7 +1683,8 @@ function refreshKitButtons(){
 function kitCSS(){
   var parts=['html{scroll-behavior:smooth}'];
   if(kit.fx){
-    parts.push('.me-rv{opacity:0;transform:'+FX_TF[kit.fx]+';transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}');
+    parts.push('.me-rv{opacity:0;transform:'+FX_TF[kit.fx]+';transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);animation:meSafe .5s ease 3.4s forwards}');
+    parts.push('@keyframes meSafe{to{opacity:1;transform:none}}');
     parts.push('.me-rv.me-in{opacity:1;transform:none}');
     parts.push('@media (prefers-reduced-motion:reduce){.me-rv{opacity:1!important;transform:none!important;transition:none!important}}');
   }
@@ -1496,7 +1701,8 @@ function kitJS(){
   if(kit.fx){
     L.push('var targets=[].slice.call(document.querySelectorAll("section,footer,header,main,h1,h2,form,blockquote,img,body>div"));');
     L.push('targets.forEach(function(el){el.classList.add("me-rv");});');
-    L.push('if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("me-in");io.unobserve(en.target);}});},{threshold:.12});targets.forEach(function(el){io.observe(el);});}else{targets.forEach(function(el){el.classList.add("me-in");});}');
+    L.push('setTimeout(function(){targets.forEach(function(el){el.classList.add("me-in");});},3000);');
+    L.push('if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("me-in");io.unobserve(en.target);}});},{threshold:.08});targets.forEach(function(el){io.observe(el);});}else{targets.forEach(function(el){el.classList.add("me-in");});}');
   }
   if(kit.forms){
     L.push('document.querySelectorAll("form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var em=f.querySelector("input[type=email]");if(em&&em.value&&em.checkValidity&&!em.checkValidity()){em.focus();return;}var done=document.createElement("div");done.setAttribute("style","background:#e7f9ee;border:1px solid #9adbb2;color:#14532d;padding:16px 18px;border-radius:10px;font-family:Arial,sans-serif;font-size:15px;text-align:center;line-height:1.5");done.textContent="Thank you! Your message has been received.";f.replaceWith(done);});});');
@@ -1659,7 +1865,7 @@ function renderDesignSoft(){
 $('dDel').onclick=function(){ if(!dSel)return; dEls=dEls.filter(function(o){return o!==dSel}); dSel=null; renderDesign(); };
 $('dDup').onclick=function(){ if(!dSel)return; var s=dSel; var o=addDesignEl(s.type,{}); for(var k in s)o[k]=s[k]; o.id='d'+(++dCounter); o.x=clampN(s.x+18,0,Math.max(0,dW-o.w)); o.y=s.y+18; dSel=o; renderDesign(); };
 $('dFront').onclick=function(){ if(!dSel)return; dEls=dEls.filter(function(o){return o!==dSel}); dEls.push(dSel); renderDesign(); };
-$('designClear').onclick=function(){ dEls=[]; dSel=null; dH=620; renderDesign(); toast('Canvas cleared'); };
+$('designClear').onclick=function(){ dEls=[]; dSel=null; dH=620; renderDesign(); toast('Canvas cleared — any website you already made from it stays open and in My designs'); };
 function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function genElHTML(o){
   var pos='position:absolute;left:'+o.x+'px;top:'+o.y+'px;width:'+o.w+'px;height:'+o.h+'px;';
@@ -1691,19 +1897,219 @@ $('openDesignBtn').onclick=function(){setDesignMode(true)};
 $('designToSite').onclick=function(){
   if(!dEls.length){toast('Add at least one block to the canvas first');return;}
   var html=designToHTML();
-  isZip=false; zipFiles={}; blobMap={}; reverseBlobMap={};
-  setFileList(['my-design.html'],'my-design.html');
-  setDesignMode(false);
-  loadSite(html,'my-design.html','designed by you');
+  var nm='my-design-'+(myDesigns.length+2)+'.html';
+  if(normalizeHTML(currentHTML)===normalizeHTML(html)){toast('This canvas design is already the open site');return;}
+  requestLoad(html,nm,'designed by you',function(){
+    isZip=false; zipFiles={}; blobMap={}; reverseBlobMap={};
+    setFileList([nm],nm);
+    setDesignMode(false);
+  });
   switchTab('Design');
-  toast('Your design is now a live website — keep editing it, or add motion in the Whole site tab');
+  if(!$('switchModal').classList.contains('open'))toast('Your design is now a live website — keep editing it, or add motion in the Whole site tab');
 };
 if(dW===390){document.querySelectorAll('#dSizeSeg button').forEach(function(x){x.classList.toggle('active',x.dataset.dsize==='390')});}
 renderDesign();
 
+/* ================= TERMINAL ================= */
+var tHist=[], tHistIdx=-1, tFiles={}, tDirs={'assets':true};
+var T_COMMANDS=['help','tools','ls','pwd','cd','cat','echo','clear','date','whoami','hostname','uname','env','history','tree','stats','format','preview','code','download','zip','designs','open','create','demo','grep','wc','head','tail','calc','base64','uuid','hash','random','json','touch','mkdir','rm','mv','cp','git','npm','node','python','curl','fetch','exit','man','which','sudo','ls-files'];
+function tEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function tPrint(text,cls){
+  var out=$('termOut'); if(!out)return;
+  var d=document.createElement('div'); if(cls)d.className=cls; d.textContent=(text===undefined?'':String(text)); out.appendChild(d); out.scrollTop=1e7;
+}
+function tPrintCmd(cmd){
+  var out=$('termOut'); var d=document.createElement('div');
+  d.innerHTML='<span class="t-prompt"></span> <span class="t-cmd"></span>';
+  d.querySelector('.t-prompt').textContent=$('termPrompt').textContent; d.querySelector('.t-cmd').textContent=cmd;
+  out.appendChild(d); out.scrollTop=1e7;
+}
+function tFileContent(name){
+  if(!name||name==='index.html'||name===currentFileName)return currentHTML;
+  if(tFiles[name]!==undefined)return tFiles[name];
+  return null;
+}
+function tAllFiles(){
+  var names=[currentFileName]; if(currentFileName!=='index.html')names.push('index.html');
+  Object.keys(tFiles).forEach(function(k){names.push(k)}); return names;
+}
+function tTokenize(s){
+  var out=[],cur='',q=null;
+  for(var i=0;i<s.length;i++){var c=s[i];
+    if(q){ if(c===q)q=null; else cur+=c; }
+    else if(c==='"'||c==="'")q=c;
+    else if(c===' '||c==='\t'){ if(cur){out.push(cur);cur='';} }
+    else cur+=c;
+  }
+  if(cur)out.push(cur); return out;
+}
+function tSplitTop(s,sep){
+  var parts=[],cur='',q=null;
+  for(var i=0;i<s.length;i++){var c=s[i];
+    if(q){cur+=c;if(c===q)q=null;continue;}
+    if(c==='"'||c==="'"){q=c;cur+=c;continue;}
+    if(sep==='|'&&c==='|'){parts.push(cur);cur='';continue;}
+    if(sep===';'&&c===';'){parts.push(cur);cur='';continue;}
+    if(sep==='&&'&&c==='&'&&s[i+1]==='&'){parts.push(cur);cur='';i++;continue;}
+    cur+=c;
+  }
+  parts.push(cur); return parts;
+}
+function tCalc(expr){
+  var toks=String(expr).replace(/[^0-9+\-*\/%(). ]/g,'').match(/(\d+\.?\d*|\+|-|\*|\/|%|\(|\))/g)||[];
+  var pos=0;
+  function peek(){return toks[pos];} function next(){return toks[pos++];}
+  function parseExpr(){var v=parseTerm();while(peek()==='+'||peek()==='-'){var op=next();var r=parseTerm();v=(op==='+')?v+r:v-r;}return v;}
+  function parseTerm(){var v=parseFactor();while(peek()==='*'||peek()==='/'||peek()==='%'){var op=next();var r=parseFactor();v=(op==='*')?v*r:(op==='/')?v/r:v%r;}return v;}
+  function parseFactor(){var tk=next();if(tk==='('){var v=parseExpr();next();return v;}if(tk==='-')return -parseFactor();var n=parseFloat(tk);if(isNaN(n))throw new Error('bad number');return n;}
+  var v=parseExpr(); if(pos<toks.length)throw new Error('could not parse all of it'); return v;
+}
+var T_TOOLS_TEXT='Bundled tools — already here, no install needed:\n  files    ls · cat · tree · grep · wc · head · tail · touch · rm · mv · cp · mkdir\n  editor   open · create · designs · preview · code · format · stats · download · zip\n  git      git status · git log · git diff\n  calc     calc 12*8+4 · base64 encode/decode · uuid · hash · random · json format\n  web      curl <url> / fetch <url>  (reads a page from the internet)\n  system   date · whoami · uname · env · history · pwd · cd\nType the tool name with no install step — e.g.  git status   or   grep hero index.html';
+var T_HELP_TEXT='Terminal — type anything, like a real terminal. Commands:\n'+T_TOOLS_TEXT+'\n\nMore:\n  help              this list          tools / man   every bundled tool\n  ls [-la]          list files         cat <file>    show a file (try: cat index.html)\n  echo text         print text         echo text > note.txt   save text to a new file\n  create <name>     new site: blank · landing · portfolio · blog · shop · restaurant\n  open <name>       open a design from My designs, an example (car), or the demo\n  designs           list your sites in this session\n  download          download the open site as .html     zip   download as .zip\n  clear             wipe the screen    exit            close the terminal\n  a | grep word     pipe output through grep, e.g.  cat index.html | grep hero\n  cmd1 ; cmd2       run two commands one after the other\nKeys: ↑ ↓ history · Tab completes a command or file name · Ctrl+L clears · Ctrl+C cancels the line';
+function tRunOne(raw,stdin){
+  var args=tTokenize(raw); if(!args.length)return '';
+  var cmd=args[0].toLowerCase(), rest=args.slice(1), joined=rest.join(' ');
+  function needFile(n){var c=tFileContent(n);if(c===null)throw new Error('cat: '+n+': No such file — try ls');return c;}
+  switch(cmd){
+    case 'help': case '--help': case '-h': return T_HELP_TEXT;
+    case 'tools': case 'man': return T_TOOLS_TEXT+'\n\nAnything else you type is still accepted — if it is not a built-in command you will get a normal “command not found” with the closest match, just like a real shell.';
+    case 'which': if(!rest[0])return 'usage: which <tool>'; return T_COMMANDS.indexOf(rest[0])>-1?('/sandbox/tools/'+rest[0]+'  (bundled — no install needed)'):rest[0]+' not found in bundled tools — type it anyway to see the shell response';
+    case 'pwd': return '/home/boss/site';
+    case 'cd': return 'Staying in ~/site — this terminal works on the site open in the editor. Files here: '+tAllFiles().join(', ');
+    case 'whoami': return 'boss';
+    case 'hostname': return 'sandbox';
+    case 'uname': return 'SandboxBrowser 1.0 (browser terminal · Asia/Dhaka)';
+    case 'date': return new Date().toString();
+    case 'env': return 'USER=boss\nHOME=/home/boss\nSITE='+(currentFileName||'index.html')+'\nSHELL=/sandbox/sh\nTERM=browser';
+    case 'history': return tHist.map(function(h,i){return '  '+(i+1)+'  '+h;}).join('\n')||'(no history yet)';
+    case 'clear': case 'cls': $('termOut').innerHTML=''; return '__CLEAR__';
+    case 'exit': case 'quit': case 'close': $('termPanel').classList.remove('open'); return '__CLEAR__';
+    case 'ls': case 'dir': case 'ls-files': {
+      var long=args.indexOf('-la')>-1||args.indexOf('-l')>-1;
+      var names=tAllFiles();
+      if(!long)return names.join('   ')+'   assets/';
+      return names.map(function(n){var c=tFileContent(n)||'';return '-rw-r--r--  boss  '+String(c.length).padStart(7)+'  '+n;}).join('\n')+'\ndrwxr-xr-x  boss       0  assets/';
+    }
+    case 'tree': { var lines=['site/']; tAllFiles().forEach(function(n,i,arr){lines.push((i===arr.length-1?'└── ':'├── ')+n);}); lines.push('└── assets/'); return lines.join('\n'); }
+    case 'cat': { if(!rest[0])return 'usage: cat <file> — try cat index.html'; var cc=needFile(rest[0]); return cc.length>6000?(cc.slice(0,6000)+'\n… [truncated in terminal — open Code at the top for the full file, '+cc.length+' chars total]'):cc; }
+    case 'head': { var hf=rest[rest.length-1]&&rest[rest.length-1].indexOf('.')>-1?rest[rest.length-1]:'index.html'; return needFile(hf).split('\n').slice(0,10).join('\n'); }
+    case 'tail': { var tf=rest[rest.length-1]&&rest[rest.length-1].indexOf('.')>-1?rest[rest.length-1]:'index.html'; return needFile(tf).split('\n').slice(-10).join('\n'); }
+    case 'wc': { var src=stdin!==null&&stdin!==undefined?stdin:needFile(rest[0]||'index.html'); var L=src.split('\n'); return L.length+' lines · '+src.split(/\s+/).filter(Boolean).length+' words · '+src.length+' chars'+(rest[0]?'  '+rest[0]:''); }
+    case 'grep': { if(!rest[0])return 'usage: grep <word> [file]  or  cat index.html | grep hero'; var word=rest[0]; var gsrc=(stdin!==null&&stdin!==undefined)?stdin:needFile(rest[1]||'index.html'); var hits=gsrc.split('\n').map(function(l,i){return {l:l,n:i+1};}).filter(function(x){return x.l.toLowerCase().indexOf(word.toLowerCase())>-1;}); return hits.length?hits.map(function(x){return x.n+': '+x.l.trim().slice(0,140);}).join('\n'):('no matches for “'+word+'”'); }
+    case 'find': return tAllFiles().join('\n');
+    case 'echo': {
+      var gt=raw.indexOf('>');
+      if(gt>-1){ var txt=tTokenize(raw.slice(raw.indexOf(' ')+1,gt).trim()).join(' '); var fn=raw.slice(gt+(raw[gt+1]==='>'?2:1)).trim().split(' ')[0];
+        if(fn==='index.html'||fn===currentFileName)return 'Refused: overwriting '+fn+' from echo would wipe your site. Edit it in the preview or Code instead — or echo into a new file name.';
+        tFiles[fn]=txt+'\n'; return 'Wrote '+fn+' ('+tFiles[fn].length+' chars) — see it with: cat '+fn; }
+      return joined;
+    }
+    case 'touch': if(!rest[0])return 'usage: touch <newfile>'; if(tFileContent(rest[0])!==null)return rest[0]+' already exists'; tFiles[rest[0]]=''; return 'Created empty file '+rest[0];
+    case 'mkdir': if(!rest[0])return 'usage: mkdir <folder>'; tDirs[rest[0]]=true; return 'Created folder '+rest[0]+'/ (shown by ls in this session)';
+    case 'rm': if(!rest[0])return 'usage: rm <file you created here>'; if(rest[0]==='index.html'||rest[0]===currentFileName)return 'Refused: that is the open site. Use the editor to change it instead of deleting it here.'; if(tFiles[rest[0]]!==undefined){delete tFiles[rest[0]];return 'Removed '+rest[0];} return 'rm: '+rest[0]+': No such file';
+    case 'mv': case 'cp': if(rest.length<2)return 'usage: '+cmd+' <from> <to>'; var mc=tFileContent(rest[0]); if(mc===null)return cmd+': '+rest[0]+': No such file'; tFiles[rest[1]]=mc; if(cmd==='mv'&&tFiles[rest[0]]!==undefined)delete tFiles[rest[0]]; return (cmd==='mv'?'Moved ':'Copied ')+rest[0]+' → '+rest[1];
+    case 'stats': case 'info': { var s=currentHTML||''; return 'Open site: '+currentFileName+' ('+currentKindLabel+')\nSize: '+s.length+' chars · '+(s.split('\n').length)+' lines\nHeadings: '+(s.match(/<h[1-6]/gi)||[]).length+' · Images: '+(s.match(/<img/gi)||[]).length+' · Links/buttons: '+(s.match(/<a |<button/gi)||[]).length+'\nMotion: '+(typeof kit!=='undefined'&&kit.fx?kit.fx:'off')+' · My designs saved: '+myDesigns.length; }
+    case 'format': case 'tidy': $('formatBtn').click(); return 'Code tidied — same formatting as the Tidy code button.';
+    case 'preview': case 'reload': preview.srcdoc=buildPreviewHTML(currentHTML); return 'Preview reloaded with the current code.';
+    case 'code': $('codePanel').classList.add('open'); $('termPanel').classList.remove('open'); return '__CLEAR__';
+    case 'download': case 'export': $('dlHtmlBtn').click(); return 'Downloading '+currentFileName+' — check your downloads.';
+    case 'zip': $('dlZipBtn').click(); return 'Downloading your site as a .zip.';
+    case 'designs': case 'sites': return myDesigns.length?('Your sites in this session:\n'+myDesigns.map(function(d,i){return '  '+(i+1)+'. '+d.name+' — '+d.kind;}).join('\n')+'\nOpen one with:  open <name>   ·   the open site now is: '+currentFileName):'No saved designs yet in this session. Create one (create landing) and it will be kept here when you switch.';
+    case 'open': {
+      if(!rest[0])return 'usage: open <car | demo | design name> — try: open car';
+      var want=joined.toLowerCase();
+      if(want==='car'){ loadExample('car'); return 'Opened the car hero example in the preview.'; }
+      if(want==='demo'){ $('demoBtn').click(); return 'Opened the starter demo (Sunrise Bakery).'; }
+      var found=null; myDesigns.forEach(function(d){if(d.name.toLowerCase().indexOf(want)>-1)found=d;});
+      if(found){ requestLoad(found.html,found.name,found.kind||'from My designs'); return 'Opening '+found.name+' — if the switch warning appears at the top of the editor, choose Keep or Download there.'; }
+      return 'open: no design called “'+joined+'” — run: designs';
+    }
+    case 'create': {
+      if(!rest[0])return 'usage: create <blank|landing|portfolio|blog|shop|restaurant>';
+      var key=rest[0].toLowerCase(); var btn=document.querySelector('[data-tpl="'+key+'"]');
+      if(!btn)return 'create: unknown template “'+rest[0]+'” — options: blank, landing, portfolio, blog, shop, restaurant';
+      btn.click(); return 'Creating the '+key+' template — if the switch warning appears, your current site is kept in My designs when you choose Keep or Download.';
+    }
+    case 'demo': $('demoBtn').click(); return 'Opened the starter demo.';
+    case 'calc': try{ return joined+' = '+tCalc(joined); }catch(e){ return 'calc: '+e.message+' — try: calc 12*8+4'; }
+    case 'base64': { if(rest[0]==='encode')return btoa(unescape(encodeURIComponent(rest.slice(1).join(' ')))); if(rest[0]==='decode'){ try{return decodeURIComponent(escape(atob(rest.slice(1).join(' '))));}catch(e){return 'base64: that does not decode';} } return 'usage: base64 encode <text>  ·  base64 decode <code>'; }
+    case 'uuid': return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0;return (c==='x'?r:(r&0x3|0x8)).toString(16);});
+    case 'hash': { var h1=5381,s=joined; for(var hi=0;hi<s.length;hi++)h1=((h1<<5)+h1+s.charCodeAt(hi))>>>0; return 'hash("'+s+'") = '+h1.toString(16).padStart(8,'0'); }
+    case 'random': { var mx=parseInt(rest[0],10)||100; return 'Random 0–'+mx+': '+(Math.floor(Math.random()*(mx+1))); }
+    case 'json': { var jsrc=(stdin!==null&&stdin!==undefined)?stdin:joined; if(!jsrc)return 'usage: paste JSON after json, or pipe it in'; try{return JSON.stringify(JSON.parse(jsrc),null,2);}catch(e){return 'json: invalid JSON — '+e.message;} }
+    case 'git': { var sub=(rest[0]||'status').toLowerCase();
+      if(sub==='--version'||sub==='version')return 'git (bundled) 2.0 — works on the open site, no install needed';
+      if(sub==='log')return myDesigns.length?myDesigns.map(function(d,i){return 'commit '+(1000+i)+' · '+d.name+' ('+d.kind+')';}).join('\n'):'No commits yet — sites you create in this session appear here as history.';
+      if(sub==='diff')return 'diff: the open site differs from the last saved design by edits in the preview — run stats for counts, or designs to compare.';
+      return 'On branch main — open site: '+currentFileName+'\nModified in this session: '+(hasUserWork?'yes (edits not yet downloaded)':'no edits yet')+'\nSaved designs: '+myDesigns.length+' · use designs to list them. Download with: download / zip';
+    }
+    case 'npm': return (rest[0]==='list'||rest[0]==='ls')?T_TOOLS_TEXT:'npm (bundled): no packages to install — every tool here is already built in. Try: npm list';
+    case 'node': case 'python': case 'python3': return cmd+' is represented by the built-in calc / json / base64 tools in this browser terminal — try: calc 12*8 , json {"a":1} , base64 encode hello';
+    case 'curl': case 'fetch': {
+      var url=rest[0]; if(!url)return 'usage: curl <https://…>';
+      if(url.indexOf('http')!==0)url='https://'+url;
+      return fetch(url).then(function(r){return r.text();}).then(function(tx){return 'HTTP fetched '+url+' ('+tx.length+' chars). First part:\n'+tx.slice(0,1500);}).catch(function(e){return 'curl: could not fetch '+url+' — the site may block browser reads (CORS), or there is no connection.';});
+    }
+    case 'sudo': return 'boss is already in charge here — no sudo needed. Running: '+(joined||'(nothing)');
+    default: {
+      var near=T_COMMANDS.filter(function(c){return c.indexOf(cmd.slice(0,3))===0||cmd.indexOf(c.slice(0,3))===0;})[0];
+      throw new Error('sh: command not found: '+args[0]+(near?('\nDid you mean: '+near+' ?  — or type help for everything built in.'):('\nType help to see the built-in commands — the input itself is free, type anything.')));
+    }
+  }
+}
+function tExec(raw){
+  tPrintCmd(raw);
+  if(raw.trim()){ tHist.push(raw); }
+  tHistIdx=tHist.length;
+  var segments=tSplitTop(raw,';');
+  segments.forEach(function(seg){
+    seg=seg.trim(); if(!seg)return;
+    var stages=tSplitTop(seg,'|').map(function(s){return s.trim();}).filter(Boolean);
+    var stdin=null, chain=Promise.resolve('');
+    stages.forEach(function(stage,idx){
+      chain=chain.then(function(prev){
+        var inp=(idx===0?null:prev);
+        var out=tRunOne(stage,inp);
+        return Promise.resolve(out).then(function(res){
+          if(res==='__CLEAR__')return '';
+          if(idx===stages.length-1&&res){ String(res).split('\n').forEach(function(line){tPrint(line);}); }
+          return res||'';
+        });
+      }).catch(function(e){ tPrint(e.message,'t-err'); return ''; });
+    });
+  });
+  setTimeout(function(){var i=$('termInput'); if(i)i.focus();},30);
+}
+function tInit(){
+  var panel=$('termPanel'); if(!panel||panel._wired)return; panel._wired=true;
+  $('termToggle').onclick=function(){ var open=panel.classList.toggle('open'); $('codePanel').classList.remove('open'); if(open){$('termInput').focus(); if(!panel._welcomed){panel._welcomed=true; tPrint('Welcome to the Sandbox terminal, boss.','t-teal'); tPrint('Everyday tools are built in — no install needed. Type anything, like a real terminal.'); tPrint('Try:  help   ·   ls   ·   cat index.html   ·   create landing   ·   designs','t-dim'); tPrint('Open site right now: '+currentFileName+' — the starter demo is labelled at the top of the preview.','t-dim'); }} };
+  $('termClose').onclick=function(){panel.classList.remove('open')};
+  $('termClearBtn').onclick=function(){$('termOut').innerHTML=''};
+  $('termToolsBtn').onclick=function(){$('termTools').classList.toggle('show')};
+  document.querySelectorAll('[data-tcmd]').forEach(function(b){ b.onclick=function(){ if(!panel.classList.contains('open'))$('termToggle').click(); tExec(b.dataset.tcmd); }; });
+  var prevCode=$('codeToggle').onclick;
+  $('codeToggle').onclick=function(){ panel.classList.remove('open'); if(prevCode)prevCode(); };
+  $('termRunBtn').onclick=function(){ var v=$('termInput').value; $('termInput').value=''; if(v.trim())tExec(v); };
+  $('termInput').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){ var v=this.value; this.value=''; if(v.trim())tExec(v); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); if(tHistIdx>0){tHistIdx--; this.value=tHist[tHistIdx]||'';} }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); if(tHistIdx<tHist.length-1){tHistIdx++; this.value=tHist[tHistIdx]||'';} else {tHistIdx=tHist.length; this.value='';} }
+    else if(e.key==='Tab'){ e.preventDefault(); var v=this.value; var last=v.split(' ').pop(); var pool=T_COMMANDS.concat(tAllFiles()).concat(['blank','landing','portfolio','blog','shop','restaurant','car','demo']); var m=pool.filter(function(p){return p.indexOf(last)===0&&p!==last;}); if(m.length===1){ this.value=v.slice(0,v.length-last.length)+m[0]; } else if(m.length>1){ tPrint(m.join('   '),'t-dim'); } }
+    else if(e.key==='l'&&(e.ctrlKey||e.metaKey)){ e.preventDefault(); $('termOut').innerHTML=''; }
+    else if(e.key==='c'&&(e.ctrlKey||e.metaKey)){ tPrintCmd(this.value+' ^C'); this.value=''; }
+  });
+  panel.addEventListener('click',function(e){ if(e.target===panel||e.target.id==='termOut')$('termInput').focus(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='`'&&(e.ctrlKey||e.metaKey)){ e.preventDefault(); $('termToggle').click(); }
+  });
+}
+
 /* ================= INIT ================= */
+booting=true;
 setFileList(['demo-site.html'],'demo-site.html');
 loadSite(DEMO_HTML,'demo-site.html','demo');
+booting=false; hasUserWork=false;
+tInit();
 if(window.lucide)lucide.createIcons();
 </script>
 </body>
